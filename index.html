@@ -3,62 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>School Dashboard</title>
+    <title>Advanced Admin Dashboard</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
-<div class="main-wrapper">
-    <aside class="sidebar">
-        <div class="menu-header"><i class="fas fa-bars"></i></div>
-        <nav>
-            <div class="nav-item active"><i class="fas fa-tachometer-alt"></i> Dashboard</div>
-            <div class="nav-item"><i class="fas fa-calendar-alt"></i> Calendar</div>
-            <div class="nav-item"><i class="fas fa-comment-dots"></i> Chat</div>
-            <div class="nav-item"><i class="fas fa-bell"></i> Notifications</div>
-            <div class="nav-item"><i class="fas fa-chart-line"></i> Performance</div>
-            <div class="nav-item"><i class="fas fa-file-alt"></i> Reports</div>
-            <div class="nav-item"><i class="fas fa-sticky-note"></i> Notes</div>
-            <div class="nav-item"><i class="fas fa-trophy"></i> Leaderboard</div>
-            <div class="nav-item"><i class="fas fa-user-graduate"></i> Trainings</div>
-        </nav>
-    </aside>
-
-    <main class="content">
-        <header class="top-bar">
-            <div class="title-section">
-                <h1><i class="fas fa-tachometer-alt"></i> Dashboard</h1>
-                <p>Overview of all platform statistics</p>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <i class="fas fa-bars toggle-btn"></i>
+                <span class="logo-text">CMS Panel</span>
             </div>
-            <div class="filter-section">
-                <div class="date-inputs">
-                    <input type="date" value="2026-04-21">
-                    <input type="date" value="2026-04-21">
+            <nav class="nav-menu">
+                <div class="nav-item active"><i class="fas fa-th-large"></i> Dashboard</div>
+                <div class="nav-item"><i class="fas fa-calendar-alt"></i> Calendar</div>
+                <div class="nav-item"><i class="fas fa-comments"></i> Chat</div>
+                <div class="nav-item"><i class="fas fa-bell"></i> Notifications</div>
+                <div class="nav-group-label">Reports & Analytics</div>
+                <div class="nav-item"><i class="fas fa-chart-bar"></i> Performance</div>
+                <div class="nav-item"><i class="fas fa-file-invoice"></i> Reports</div>
+                <div class="nav-item"><i class="fas fa-user-shield"></i> Admin Settings</div>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-nav">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search statistics, reports...">
                 </div>
-                <button class="apply-btn"><i class="fas fa-filter"></i> Apply</button>
+                <div class="user-profile">
+                    <i class="fas fa-globe"></i> <span>العربية</span>
+                    <div class="profile-info">
+                        <img src="https://via.placeholder.com/35" alt="User">
+                        <span>Admin <i class="fas fa-chevron-down"></i></span>
+                    </div>
+                </div>
+            </header>
+
+            <section class="dashboard-header">
+                <div class="header-text">
+                    <h1><i class="fas fa-tachometer-alt"></i> Dashboard</h1>
+                    <p>Overview of all platform statistics</p>
+                </div>
+                <div class="date-filter-box">
+                    <div class="inputs">
+                        <input type="date" id="startDate">
+                        <input type="date" id="endDate">
+                    </div>
+                    <button class="apply-btn"><i class="fas fa-sync"></i> Apply</button>
+                </div>
+            </section>
+
+            <div class="overview-tab">
+                <i class="fas fa-chart-line"></i> Overview
             </div>
-        </header>
 
-        <section class="overview-badge">
-            <span><i class="fas fa-chart-area"></i> Overview</span>
-        </section>
+            <div class="stats-grid">
+                <div class="card bg-blue">
+                    <div class="card-info"> <h2 id="count-students">0</h2> <p>Students</p> </div>
+                    <i class="fas fa-user-graduate"></i>
+                </div>
+                <div class="card bg-green">
+                    <div class="card-info"> <h2 id="count-teachers">0</h2> <p>Teachers</p> </div>
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <div class="card bg-purple">
+                    <div class="card-info"> <h2 id="count-tests">0</h2> <p>Tests</p> </div>
+                    <i class="fas fa-file-signature"></i>
+                </div>
+                <div class="card bg-orange">
+                    <div class="card-info"> <h2 id="count-trainings">0</h2> <p>Trainings</p> </div>
+                    <i class="fas fa-medal"></i>
+                </div>
+                <div class="card bg-teal">
+                    <div class="card-info"> <h2 id="count-courses">0</h2> <p>Courses</p> </div>
+                    <i class="fas fa-book"></i>
+                </div>
+            </div>
 
-        <div class="stats-grid">
-            <div class="card blue"><i class="fas fa-user-circle"></i> <span>0</span><p>STUDENTS</p></div>
-            <div class="card green"><i class="fas fa-chalkboard-teacher"></i> <span>0</span><p>TEACHERS</p></div>
-            <div class="card purple"><i class="fas fa-clipboard-list"></i> <span>0</span><p>TESTS</p></div>
-            <div class="card orange"><i class="fas fa-graduation-cap"></i> <span>0</span><p>TRAININGS</p></div>
-            <div class="card teal"><i class="fas fa-book-open"></i> <span>0</span><p>COURSES</p></div>
-            <div class="card dark-blue"><i class="fas fa-school"></i> <span>0</span><p>SCHOOLS</p></div>
-            <div class="card dark-grey"><i class="fas fa-sitemap"></i> <span>0</span><p>DEPARTMENTS</p></div>
-            <div class="card pink"><i class="fas fa-users"></i> <span>0</span><p>EMPLOYEES</p></div>
-            <div class="card light-blue"><i class="fas fa-calendar-check"></i> <span>0</span><p>SEMESTERS</p></div>
-            <div class="card sky-blue"><i class="fas fa-calendar-alt"></i> <span>0</span><p>ACADEMIC YEARS</p></div>
-        </div>
-    </main>
-</div>
+            <section class="analytics-section">
+                <div class="chart-container">
+                    <h3><i class="fas fa-history"></i> Monthly Trends (Date-Filtered)</h3>
+                    <canvas id="trendsChart"></canvas>
+                </div>
+            </section>
+        </main>
+    </div>
 
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
