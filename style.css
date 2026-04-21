@@ -1,0 +1,114 @@
+:root {
+    --primary-blue: #1a56db;
+    --sidebar-bg: #1e429f;
+    --card-radius: 12px;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f1f5f9;
+}
+
+.main-wrapper {
+    display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 240px;
+    background-color: var(--sidebar-bg);
+    color: white;
+    min-height: 100vh;
+}
+
+.menu-header { padding: 20px; font-size: 20px; cursor: pointer; }
+
+.nav-item {
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.nav-item.active, .nav-item:hover {
+    background-color: #1a3a8a;
+}
+
+/* Main Content */
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.title-section h1 { font-size: 22px; margin: 0; color: #333; }
+.title-section p { font-size: 13px; color: #666; }
+
+.filter-section { text-align: right; }
+.date-inputs input { padding: 5px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 5px; }
+
+.apply-btn {
+    background-color: #0061f2;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.overview-badge {
+    background-color: #0061f2;
+    color: white;
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+/* Stats Cards */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+}
+
+.card {
+    padding: 20px;
+    border-radius: var(--card-radius);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.card span { font-size: 24px; font-weight: bold; display: block; }
+.card p { font-size: 12px; margin: 5px 0 0 0; font-weight: bold; }
+.card i {
+    position: absolute;
+    right: 15px;
+    top: 20px;
+    font-size: 30px;
+    opacity: 0.5;
+}
+
+/* Specific Card Colors from the image */
+.blue { background-color: #3b82f6; }
+.green { background-color: #22c55e; }
+.purple { background-color: #a855f7; }
+.orange { background-color: #f97316; }
+.teal { background-color: #06b6d4; }
+.dark-blue { background-color: #6366f1; }
+.dark-grey { background-color: #4b5563; }
+.pink { background-color: #ec4899; }
+.light-blue { background-color: #0ea5e9; }
+.sky-blue { background-color: #06b6d4; }
